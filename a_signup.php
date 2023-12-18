@@ -1,3 +1,19 @@
+<?php
+require 'connect.php';
+    if(isset($_POST['submit'])){
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $duplicate = mysqli_query($conn_pvv, "select * from logindetails where username='$username'");
+    if(mysqli_num_rows($duplicate) > 0){
+        echo "<script>alert ('Username is already taken!')</script>";
+    }
+    else{
+    $query = "insert into logindetails values ('','$username','$password')";
+    mysqli_query($conn_npt,$query);
+    echo "<script>alert ('Sign Up Successful!')</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
