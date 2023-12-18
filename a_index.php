@@ -1,3 +1,25 @@
+<?php
+    require 'connect.php';
+    if(isset($POST['submit'])){
+        $username = $POST['username'];
+        $password = $POST['password'];
+        $result = mysqli_query($conn_pvv, "select * from logindetails where username='$username' and password='$password'");
+        $row = mysqli_fetch_array($result);
+        if (mysqli_num_rows($result) > 0){
+            if($password==$row["password"]){
+                $_SESSION['login'] = true;
+                $_SESSION['id'] = $row['id'];
+                header("Location: index.html");
+            }
+            else{
+                echo "<script>alert ('Wrong password!')</script>";
+            }
+        }
+            else{
+            echo "<script>alert ('User has not registered yet!')</script>";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
