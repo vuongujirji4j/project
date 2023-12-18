@@ -9,7 +9,7 @@ require 'a_connect.php';
     }
     else{
     $query = "insert into logindetails values ('','$username','$password')";
-    mysqli_query($conn_npt,$query);
+    mysqli_query($conn_pvv,$query);
     echo "<script>alert ('Sign Up Successful!')</script>";
     }
 }
