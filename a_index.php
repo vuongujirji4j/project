@@ -1,5 +1,5 @@
 <?php
-    require 'connect.php';
+    require 'a_connect.php';
     if(isset($POST['submit'])){
         $username = $POST['username'];
         $password = $POST['password'];
